@@ -1,0 +1,2 @@
+instalar os requisitos: pip install -r requirements.txt
+rodar o sistema: python app.py
