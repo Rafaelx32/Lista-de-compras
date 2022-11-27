@@ -1,18 +1,16 @@
-from flask import Flask, render_template, request
+#importando as bibliotecas
+from flask import Flask, render_template, request, redirect
+import csv
 
 app = Flask(__name__)
 
-tasks = [
-    {'name': 'Bolo de aniversário', 'price': '5,00'},
-    {'name': 'Arroz 500g', 'price': '2,00'},
-    {'name': 'Bolacha', 'price': '6,50'}
-]
-
+tasks = []
+#criando rota do HTML
 @app.route('/')
 def home():
     # templates/home.html
     return render_template('home.html', tasks=tasks)
-
+#Rota de criação de nome e preço dos itens 
 @app.route('/create', methods=['POST'])
 def create():
     name = request.form['name']
@@ -20,10 +18,14 @@ def create():
     task = {'name': name, 'price': price}
     tasks.append(task)
     return render_template('home.html', tasks=tasks)
+# Rota de delatar itens
+@app.route('/deletar/<>')
+def deletar():
+    try:
 
-@app.route('/delete')
-def delete():
-    return 'não tem nada aqui ainda aaaaa'
+        return 'nada por enquanto'
+    except: 
+
 
 @app.route('/bye')
 def bye():
