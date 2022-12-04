@@ -12,7 +12,7 @@ def home():
 
     with open('compras.csv', 'rt') as fille_in:
         compras = csv.DictReader(fille_in)
-        return render_template('home.html', compras=compras)# templates/home.html
+        return render_template('index.html', compras=compras)# templates/home.html
 
 
 @app.route('/create')
@@ -36,7 +36,7 @@ def salvar():
 
     with open('compras.csv','rt') as fille_in:
         compras = csv.DictReader(fille_in)
-        return render_template('home.html', compras=compras)
+        return render_template('index.html', compras=compras)
 
 
 # Rota de delatar itens
@@ -50,7 +50,7 @@ def deletar(id):
 
     with open('compras.csv', 'rt') as fille_in:
         compras = csv.DictReader(fille_in)
-        return render_template('home.html', compras=compras)
+        return render_template('index.html', compras=compras)
 
 
 @app.route('/atualizar/<id>/<nome>/<preco>')
@@ -64,16 +64,17 @@ def guardar():
     id = request.form['id']
     nome = request.form['nome']
     preco = request.form['preco']
+    data = pd.read_csv("compras.csv")
     novo_df = pd.DataFrame({'Id': [id], 'nome': [nome], 'preco': [preco] })
-    data = data.set_index('Id')
-    novo_df = novo_df.set_index('Id')
+    data = data.set_index("Id")
+    novo_df = novo_df.set_index("Id")
     data.update(novo_df)
     data.to_csv('compras.csv')
 
 
     with open('compras.csv', 'rt') as fille_in:
         compras = csv.DictReader(fille_in)
-        return render_template('home.html', compras=compras)
+        return render_template('index.html', compras=compras)
         
             
 app.run(debug=True)
