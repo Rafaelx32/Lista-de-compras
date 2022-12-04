@@ -19,13 +19,13 @@
             <tr>
                 <td>{{compra["nome"]}}</td>
                 <td>R$ {{compra["preco"]}}</td>
-                <td><a href='/deletar/{{compra["Id"]}}'><button type="button" class="btn btn-danger">Deletar</button>
-                  <a href='/atualizar/{{compra["Id"]}}/{{compra["nome"]}}/{{compra["preco"]}}'><button type="button" class="btn btn-primary">Atualizar</button>></a></td>
+                <td><a href='/deletar/{{compra["Id"]}}'><button type="button" class="btn btn-danger">Deletar</button></a>
+                  <a href='/atualizar/{{compra["Id"]}}/{{compra["nome"]}}/{{compra["preco"]}}'><button type="button" class="btn btn-primary">Atualizar</button></a></td>
                 <td>
             </tr>
             {% endfor %}
 
         </table>
-        <a href="/create" class="btn btn-primary">adicionar</a>
+        <a href="/create"><button type="button" class="btn btn-success">Adicionar</button></a>
     </body>
 </html>

@@ -9,12 +9,12 @@ app = Flask(__name__)
 @app.route('/')
 def home():
 
-
+    #Abrindo os dados que estão salvos no csv no HTML
     with open('compras.csv', 'rt') as fille_in:
         compras = csv.DictReader(fille_in)
-        return render_template('index.html', compras=compras)# templates/home.html
+        return render_template('index.html', compras=compras)# templates/index.html
 
-
+#criando a rota de HTML que será responsável por receber os itens que o cliente colocará
 @app.route('/create')
 def create():
     return render_template('create.html')
