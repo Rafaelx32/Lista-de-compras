@@ -1,3 +1,6 @@
+# Nomes
+    Rafael Xavier Bofo
+    Daniel Matias Carvalho
 # Flask-Lista de compras-Faculdade
 Projeto final de linguagem de programação
 
